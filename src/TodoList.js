@@ -1,4 +1,5 @@
 import React, { Component , Fragment} from 'react';
+import TodoItem from './TodoItem';
 
 class TodoList extends Component {
     constructor(props) { //一个实例就要对应一个构造函数
@@ -23,12 +24,17 @@ class TodoList extends Component {
                 {
                     this.state.list.map(( item, index) => {
                         return (
+                            <div>
+                            <TodoItem />
+                        {/* 
                         <li 
                         key={index} 
                         onClick={this.handleItemDelete.bind(this,index)}
                         >
                         { item }
-                        </li>
+                        </li> 
+                        */}
+                            </div>
                         )
                     })
                 }
