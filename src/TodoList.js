@@ -28,16 +28,21 @@ class TodoList extends Component {
                 <button onClick={this.handleBtnClick}>提交</button>
                 </div>
             <ul>
-                {
-                    this.state.list.map(( item, index) => {
-                        return (
-                            <div>
-                            <TodoItem 
-                            content={item} 
-                            index={index}
-                            deleteItem={this.handleItemDelete}
-                            />
-                        {/* 
+                    {this.getTodoItem()}
+            </ul>
+            </Fragment>
+        )
+    }
+    getTodoItem() {
+       return this.state.list.map((item, index) => {
+            return (
+                <div>
+                    <TodoItem
+                        content={item}
+                        index={index}
+                        deleteItem={this.handleItemDelete}
+                    />
+                    {/* 
                         <li 
                         key={index} 
                         onClick={this.handleItemDelete.bind(this,index)}
@@ -45,13 +50,9 @@ class TodoList extends Component {
                         { item }
                         </li> 
                         */}
-                            </div>
-                        )
-                    })
-                }
-            </ul>
-            </Fragment>
-        )
+                </div>
+            )
+        })
     }
     handleInputChange(e) {
         this.setState({
