@@ -55,9 +55,14 @@ class TodoList extends Component {
         })
     }
     handleInputChange(e) {
-        this.setState({
-            inputValue: e.target.value,
+        this.setState(() => {
+            return {
+                inputValue: e.target.value,
+            }
         })
+        // this.setState({
+        //     inputValue: e.target.value,
+        // })
     }
     handleBtnClick() {
         this.setState({
