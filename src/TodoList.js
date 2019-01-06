@@ -8,6 +8,10 @@ class TodoList extends Component {
             inputValue: '',
             list: []
         }
+        // this指向的绑定都放到constructor构造函数里面
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleBtnClick = this.handleBtnClick.bind(this);
+        this.handleItemDelete = this.handleItemDelete.bind(this);
     }
     render() {
     {/*测试git提交时的不需要用户名和密码*/}
@@ -19,9 +23,9 @@ class TodoList extends Component {
                 id="insertArea"
                 className="input"
                 value={this.state.inputValue}
-                onChange={this.handleInputChange.bind(this)}
+                onChange={this.handleInputChange}
                 />
-                <button onClick={this.handleBtnClick.bind(this)}>提交</button>
+                <button onClick={this.handleBtnClick}>提交</button>
                 </div>
             <ul>
                 {
@@ -31,7 +35,7 @@ class TodoList extends Component {
                             <TodoItem 
                             content={item} 
                             index={index}
-                            deleteItem={this.handleItemDelete.bind(this)}
+                            deleteItem={this.handleItemDelete}
                             />
                         {/* 
                         <li 
