@@ -36,28 +36,20 @@ class TodoList extends Component {
     getTodoItem() {
        return this.state.list.map((item, index) => {
             return (
-                <div>
                     <TodoItem
+                        key={index}
                         content={item}
                         index={index}
                         deleteItem={this.handleItemDelete}
                     />
-                    {/* 
-                        <li 
-                        key={index} 
-                        onClick={this.handleItemDelete.bind(this,index)}
-                        >
-                        { item }
-                        </li> 
-                        */}
-                </div>
             )
         })
     }
     handleInputChange(e) {
+        const value = e.target.value; //e.target.value在异步setState时先做保存在外层再使用，否则报错
         this.setState(() => {
             return {
-                inputValue: e.target.value,
+                inputValue: value,
             }
         })
         // this.setState({
@@ -65,17 +57,27 @@ class TodoList extends Component {
         // })
     }
     handleBtnClick() {
-        this.setState({
-            list: [...this.state.list, this.state.inputValue],
+        this.setState((prevState) => ({ //ES6函数直接返回对象写法/setState的参数prevState为前一状态下的state
+            list: [...prevState.list, prevState.inputValue],
             inputValue: ''
-        })
+        }))
+        // this.setState({
+        //     list: [...this.state.list, this.state.inputValue],
+        //     inputValue: ''
+        // })
     }
     handleItemDelete(index) {
-        const list = [...this.state.list];
-        list.splice(index , 1);
-        this.setState({
-            list: list
+        this.setState((prevState) => {
+            const list = [...prevState.list];
+            list.splice(index, 1);
+            return {list}
         })
+        // this.setState(() => ({
+        //     list: list
+        // }))
+        // this.setState({
+        //     list: list
+        // })
         console.log(index);
     }
 }
