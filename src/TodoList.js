@@ -81,5 +81,5 @@ class TodoList extends Component {
         console.log(index);
     }
 }
-
+//react中，父组件通过属性向子组件传递数据，子组件通过父组件传递的方法传递数据
 export default TodoList;

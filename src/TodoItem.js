@@ -1,4 +1,5 @@
 import React,{ Component } from "react";
+import PropTypes from 'prop-types';
 
 class TodoItem extends Component {
     constructor(props) {
@@ -18,6 +19,12 @@ class TodoItem extends Component {
         const { deleteItem , index } = this.props;
         deleteItem(index);
     }
+}
+//通过PropTypes要求父组件传值的类型
+TodoItem.PropTypes = {
+    content: PropTypes.string,
+    deleteItem: PropTypes.func,
+    index: PropTypes.number
 }
 
 export default TodoItem;
