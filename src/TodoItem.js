@@ -7,11 +7,11 @@ class TodoItem extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
     render() {
-        const { content } = this.props;
+        const { content , test} = this.props;
         return (
             <div 
             onClick={this.handleClick}>
-            {content}
+            {test} - {content}
             </div>
         )
     }
@@ -21,7 +21,8 @@ class TodoItem extends Component {
     }
 }
 //通过PropTypes要求父组件传值的类型
-TodoItem.PropTypes = {
+TodoItem.propTypes = {
+    test: PropTypes.string.isRequired, //代表test必须要传递
     content: PropTypes.string,
     deleteItem: PropTypes.func,
     index: PropTypes.number
