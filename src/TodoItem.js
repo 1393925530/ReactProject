@@ -23,9 +23,13 @@ class TodoItem extends Component {
 //通过PropTypes要求父组件传值的类型
 TodoItem.propTypes = {
     test: PropTypes.string.isRequired, //代表test必须要传递
-    content: PropTypes.string,
+    content: PropTypes.arrayOf(PropTypes.number, PropTypes.string), //arrayOf或者语法，PropTypes可以多个类型
     deleteItem: PropTypes.func,
     index: PropTypes.number
+}
+
+TodoItem.defaultProps = {
+    test: 'hello world',
 }
 
 export default TodoItem;
