@@ -1,5 +1,6 @@
 import React, { Component , Fragment} from 'react';
 import TodoItem from './TodoItem';
+import Test from './Test';
 
 class TodoList extends Component {
     constructor(props) { //一个实例就要对应一个构造函数
@@ -31,6 +32,7 @@ class TodoList extends Component {
             <ul>
                     {this.getTodoItem()}
             </ul>
+            <Test content={this.state.inputValue}/>
             </Fragment>
         )
     }
