@@ -4,6 +4,7 @@ import TodoItem from './TodoItem';
 class TodoList extends Component {
     constructor(props) { //一个实例就要对应一个构造函数
         super(props); //调用父类的构造函数
+        //当组件的state或者props发生变化时，render函数就会重新执行
         this.state = {
             inputValue: '',
             list: []
