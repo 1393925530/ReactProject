@@ -69,4 +69,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 
 ### 2019-01-14
 
-虚拟DOM就是JS对象，用来描述真实的DOM。
+虚拟DOM就是JS对象，用来描述真实的DOM；虚拟DOM之所以能提高性能，是因为JS中比较JS对象相对于比较真实DOM来说，不怎么耗性能。
