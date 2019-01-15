@@ -9,6 +9,7 @@ class TodoItem extends Component {
     render() {
         const { content , test} = this.props;
         //JSX -> createElement -> 虚拟DOM（JS对象） -> 真实的DOM
+        //虚拟DOM使得ReactNative开发原生应用成为可能
         return React.createElement('div', {} , 'item');
     }
     handleClick() {
