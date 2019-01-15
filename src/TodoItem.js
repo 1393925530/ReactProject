@@ -8,6 +8,7 @@ class TodoItem extends Component {
     }
     render() {
         const { content , test} = this.props;
+        //JSX -> JS对象 -> 真实的DOM
         return (
             <div 
             onClick={this.handleClick}>
