@@ -8,13 +8,8 @@ class TodoItem extends Component {
     }
     render() {
         const { content , test} = this.props;
-        //JSX -> JS对象 -> 真实的DOM
-        return (
-            <div 
-            onClick={this.handleClick}>
-            {test} - {content}
-            </div>
-        )
+        //JSX -> createElement -> 虚拟DOM（JS对象） -> 真实的DOM
+        return React.createElement('div', {} , 'item');
     }
     handleClick() {
         const { deleteItem , index } = this.props;
