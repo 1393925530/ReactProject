@@ -70,3 +70,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 ### 2019-01-14
 
 虚拟DOM就是JS对象，用来描述真实的DOM；虚拟DOM之所以能提高性能，是因为JS中比较JS对象相对于比较真实DOM来说，不怎么耗性能。
+
+### 2019-01-16
+
+React虚拟DOM的diff算法，建立在state发生改变时（即setState方法被调用，而且多次调用因为setState异步函数的关系进化为一次调用）调用，特征之一是同级比较逐层匹配。不仅如此，通过key值判断节点进行比较可以使得原节点和现节点建立关系，提高性能，且key值必须稳定，这也是为什么在项目中能不使用index作为key值就不要利用index作为key值的原因。
