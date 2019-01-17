@@ -10,6 +10,9 @@ class TodoItem extends Component {
         const { content , test} = this.props;
         //JSX -> createElement -> 虚拟DOM（JS对象） -> 真实的DOM
         //虚拟DOM使得ReactNative开发原生应用成为可能
+        return (
+            <div>{content}</div>
+        )
         return React.createElement('div', {} , 'item');
     }
     handleClick() {
@@ -20,7 +23,7 @@ class TodoItem extends Component {
 //通过PropTypes要求父组件传值的类型
 TodoItem.propTypes = {
     test: PropTypes.string.isRequired, //代表test必须要传递
-    content: PropTypes.arrayOf(PropTypes.number, PropTypes.string), //arrayOf或者语法，PropTypes可以多个类型
+    content: PropTypes.oneOfType([PropTypes.number, PropTypes.string]), //arrayOf或者语法，content为一个数组，数组的组成内容可以是number或者string，PropTypes可以多个类型
     deleteItem: PropTypes.func,
     index: PropTypes.number
 }
