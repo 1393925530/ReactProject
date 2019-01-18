@@ -47,6 +47,7 @@ class TodoList extends Component {
         })
     }
     handleInputChange(e) {
+        console.log(e.target);//e.target获取到事件对应的元素对应的DOM节点，还可以用ref获取到对应的DOM
         const value = e.target.value; //e.target.value在异步setState时先做保存在外层再使用，否则报错
         this.setState(() => {
             return {
