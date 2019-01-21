@@ -63,6 +63,7 @@ class TodoList extends Component {
     handleBtnClick() {
         this.setState((prevState) => ({ //ES6函数直接返回对象写法/setState的参数prevState为前一状态下的state
             //且setState函数不会立即执行,异步函数
+            //所以setState和ref联合使用时出现的一些坑也要避免
             list: [...prevState.list, prevState.inputValue],
             inputValue: ''
         }), () => { //setState异步函数执行完毕后的回调函数
