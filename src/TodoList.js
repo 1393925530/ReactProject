@@ -29,7 +29,7 @@ class TodoList extends Component {
                 />
                 <button onClick={this.handleBtnClick}>提交</button>
                 </div>
-            <ul>
+            <ul ref={(ul) => {this.ul = ul}}>
                     {this.getTodoItem()}
             </ul>
             </Fragment>
@@ -62,9 +62,12 @@ class TodoList extends Component {
     }
     handleBtnClick() {
         this.setState((prevState) => ({ //ES6函数直接返回对象写法/setState的参数prevState为前一状态下的state
+            //且setState函数不会立即执行,异步函数
             list: [...prevState.list, prevState.inputValue],
             inputValue: ''
-        }))
+        }), () => { //setState异步函数执行完毕后的回调函数
+                console.log(this.ul.querySelectorAll('div').length);
+        })
         // this.setState({
         //     list: [...this.state.list, this.state.inputValue],
         //     inputValue: ''
