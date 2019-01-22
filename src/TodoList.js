@@ -3,6 +3,7 @@ import TodoItem from './TodoItem';
 
 class TodoList extends Component {
     constructor(props) { //一个实例就要对应一个构造函数
+        //实际上constructor和React的生命周期函数很像，由于不是React独有的，所以并不算React的生命周期函数；在组件一被创建时就被调用
         super(props); //调用父类的构造函数
         //当组件的state或者props发生变化时，render函数就会重新执行
         this.state = {
@@ -15,6 +16,7 @@ class TodoList extends Component {
         this.handleItemDelete = this.handleItemDelete.bind(this);
     }
     render() {
+        //render实际上属于React的生命周期函数
     {/*测试git提交时的不需要用户名和密码*/}
         return (
             <Fragment>
