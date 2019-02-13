@@ -46,6 +46,22 @@ class TodoList extends Component {
     componentDidMount() {
         console.log('componentDidMount');
     }
+    //组件被更新之前，被执行
+    shouldComponentUpdate() {
+        console.log('shouldComponentUpdate');
+        return true;
+    }
+    //组件被更新之前，被执行，但是在shouldComponentUpdate之后被执行
+    //如果shouldComponentUpdate返回true才执行
+    //如果返回false，不执行
+    componentWillUpdate() {
+        console.log('componentWillUpdate');
+    }
+    //组件更新完成之后被执行
+    componentDidUpdate() {
+        console.log('componentDidUpdate');
+    }
+    
     getTodoItem() {
        return this.state.list.map((item, index) => {
             return (

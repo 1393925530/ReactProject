@@ -20,6 +20,16 @@ class TodoItem extends Component {
         const { deleteItem , index } = this.props;
         deleteItem(index);
     }
+    // 当一个组件从父组件接收参数
+    //如果这个组件第一次存在于父组件中，不会执行
+    //如果这个组件之前存在于父组件中，才会执行
+    componentWillReceiveProps() {
+        console.log('componentWillReceiveProps');
+    }
+    //当这个组件即将被从页面剔除时会被执行
+    componentWillUnmount() {
+        console.log('componentWillUnmount');
+    }
 }
 //通过PropTypes要求父组件传值的类型
 TodoItem.propTypes = {
