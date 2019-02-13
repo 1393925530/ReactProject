@@ -15,7 +15,12 @@ class TodoList extends Component {
         this.handleBtnClick = this.handleBtnClick.bind(this);
         this.handleItemDelete = this.handleItemDelete.bind(this);
     }
+    //在组件即将被挂载到页面时自动执行
+    componentWillMount() {
+        console.log('componentWillMount');
+    }
     render() {
+        console.log('render');
         //render实际上属于React的生命周期函数
     {/*测试git提交时的不需要用户名和密码*/}
         return (
@@ -36,6 +41,10 @@ class TodoList extends Component {
             </ul>
             </Fragment>
         )
+    }
+    //组件被挂载到页面后，自动被执行
+    componentDidMount() {
+        console.log('componentDidMount');
     }
     getTodoItem() {
        return this.state.list.map((item, index) => {
