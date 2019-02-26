@@ -10,7 +10,12 @@ export default (state = defaultState, action) => {
         newState.inputValue = action.value;
         return newState;
     }
-    console.log(state,action);
+    if(action.type == "add_todo_item") {
+        const newState = JSON.parse(JSON.stringify(state));
+        newState.list.push(newState.inputValue);
+        newState.inputValue = '';
+        return newState;
+    }
     //state管理员需要的记录本的所有数据
     return state;
 }
