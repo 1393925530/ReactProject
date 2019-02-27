@@ -1,57 +1,41 @@
 import React, { Component } from 'react';
-import store from './store/index.js';
-import { getInputChangeAction, getAddItemAction, getDeleteItemAction, getInitList} from './store/actionCreators';
-import TodoListUI from './TodoListUI';
+import { connect } from 'react-redux';
 
 class TodoList extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = store.getState();
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleStoreChange = this.handleStoreChange.bind(this);
-        this.handleBtnClick = this.handleBtnClick.bind(this);
-        this.handleItemDelete = this.handleItemDelete.bind(this);
-        store.subscribe(this.handleStoreChange);
-    }
-
     render() {
         return (
-            <TodoListUI 
-                inputValue = {this.state.inputValue}
-                list = {this.state.list}
-                handleInputChange = {this.handleInputChange}
-                handleBtnClick = {this.handleBtnClick}
-                handleItemDelete = {this.handleItemDelete}
-            />
+            <div>
+                <div>
+                    <input value={this.props.inputValue} onChange={this.changeInputValue}/>
+                    <button>提交</button>
+                </div>
+                <ul>
+                    <li>dell</li>
+                </ul>
+            </div>
         )
-    }
-
-    componentDidMount() {
-        const action = getInitList();
-        store.dispatch(action);
-        console.log(action);
-    }
-
-    handleInputChange(e) {
-        const action = getInputChangeAction(e.target.value);
-        store.dispatch(action);
-        console.log(e.target.value);
-    }
-
-    handleStoreChange() {
-        this.setState(store.getState());
-    }
-
-    handleBtnClick() {
-        const action = getAddItemAction();
-        store.dispatch(action);
-    }
-
-    handleItemDelete(index) {
-        const action = getDeleteItemAction(index);
-        store.dispatch(action);
     }
 }
 
-export default TodoList;
+//state映射到props，state是store里面的数据，映射到组件的props
+const mapStateToProps = (state) => {
+    return {
+        inputValue: state.inputValue
+    }
+}
+
+//store.dispatch, props
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeInputValue(e) {
+            const action = {
+                type: 'change_input_value',
+                value: e.target.value
+            }
+            dispatch(action);
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
