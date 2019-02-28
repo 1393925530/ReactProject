@@ -10,4 +10,5 @@ export default (state = defaultState, action) => {
         newState.inputValue = action.value;
         return newState;
     }
+    return state;
 }
