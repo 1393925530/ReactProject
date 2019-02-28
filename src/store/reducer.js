@@ -1,5 +1,5 @@
 const defaultState = {
-    inputValue: 'hello world',
+    inputValue: "hello world",
     list: []
 }
 
